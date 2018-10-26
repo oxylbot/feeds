@@ -7,7 +7,6 @@ language: rust
 rust: nightly
 
 before_script:
-  - sudo apt-get install -y build-essential
   - sudo apt-get update
   - cargo build 
 
@@ -17,5 +16,5 @@ script:
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker pull oxyl/feeds
-  - docker build .
+  - docker build -t oxyl/feeds .
   - docker push oxyl/feeds
