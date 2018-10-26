@@ -1,0 +1,24 @@
+sudo: required
+
+services:
+ - docker
+
+language: rust
+rust:
+  - stable
+  - nightly
+
+before_script:
+  - rustup component add rustfmt-preview
+  - cargo build 
+
+script:
+  - cargo test
+
+after_script:
+  - cargo fmt
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker pull oxyl/gateway
+  - docker push oxyl/gateway
