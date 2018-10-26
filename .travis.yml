@@ -4,20 +4,18 @@ services:
  - docker
 
 language: rust
-rust:
-  - nightly
+rust: nightly
 
 before_script:
-  - rustup component add rustfmt-preview
+  - sudo apt-get install -y build-essential
+  - sudo apt-get update
   - cargo build 
 
 script:
   - cargo test
 
-after_script:
-  - cargo fmt
-
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker pull oxyl/feeds
+  - docker build .
   - docker push oxyl/feeds
