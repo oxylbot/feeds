@@ -5,7 +5,6 @@ services:
 
 language: rust
 rust:
-  - stable
   - nightly
 
 before_script:
