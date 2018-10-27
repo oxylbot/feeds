@@ -15,5 +15,7 @@ fn grab_reddit_feeds() -> Value {
 }
 
 pub fn return_feeds() -> Feeds {
-    Feeds { reddit: grab_reddit_feeds() }
+    Feeds {
+        reddit: grab_reddit_feeds(),
+    }
 }

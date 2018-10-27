@@ -1,11 +1,11 @@
-use tokio_timer::{Timer};
-use futures::stream::Stream;
+use super::feeders::Feeds;
 
-use std::time::Duration;
+use eventual::Timer;
 
-pub fn start_interval(cb: &Fn()) {
-    Timer::default()
-    // Interval::new_interval(Duration::new(60 * 13, 0))
-    //     .map_err(|e| println!("Error occurd in inerval : {}", e))
-    //     .take_while(|()| cb());
+pub fn start_interval(feeds: Feeds) {
+    let timer = Timer::new();
+    let ticks = timer.interval_ms(780 * 1000).iter();
+    for _ in ticks {
+        println!("{:?}", feeds);
+    }
 }
