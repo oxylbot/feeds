@@ -6,9 +6,10 @@ services:
 language: rust
 rust: nightly
 
+install: cargo build --verbose
+
 before_script:
   - sudo apt-get update
-  - cargo build 
 
 script:
   - cargo test
