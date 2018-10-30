@@ -7,16 +7,17 @@ extern crate reqwest;
 extern crate serde;
 extern crate serde_json;
 
-mod feeders;
+mod feed_handler;
 mod interval;
 
+use self::feed_handler::*;
 use dotenv::dotenv as load_env;
+
+use std::thread;
+use std::time::Duration;
 
 fn main() {
     load_env().ok();
 
-    interval::start_interval(move || {
-        let feeds = feeders::return_feeds();
-        println!("{:?}", feeds);
-    });
+    handle_feed(String::from("youtube"), vec!["imstonic", "10"]);
 }
