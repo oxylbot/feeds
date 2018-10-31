@@ -13,11 +13,8 @@ mod interval;
 use self::feed_handler::*;
 use dotenv::dotenv as load_env;
 
-use std::thread;
-use std::time::Duration;
-
 fn main() {
     load_env().ok();
 
-    handle_feed(String::from("youtube"), vec!["imstonic", "10"]);
+    load_feed(String::from("twitch"), vec!["sypherpk", "chicalive"]);
 }

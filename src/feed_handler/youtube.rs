@@ -2,7 +2,6 @@ use reqwest::get as fetch;
 use serde_json::{from_str, Value};
 
 use std::io::Read;
-
 use std::env;
 
 fn grab_results(url: &str) -> String {
