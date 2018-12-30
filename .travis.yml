@@ -13,9 +13,3 @@ before_script:
 
 script:
   - cargo test
-
-after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker pull oxyl/feeds
-  - docker build -t oxyl/feeds .
-  - docker push oxyl/feeds
