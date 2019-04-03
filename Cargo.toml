@@ -5,7 +5,7 @@ authors = ["GitStonic <kingstonicthe1@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-serde = "1.0.89"
+serde = "1.0.90"
 dotenv = "0.13.0"
 reqwest = "0.9.12"
 eventual = "0.1.7"
