@@ -5,9 +5,12 @@ authors = ["GitStonic <kingstonicthe1@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-serde = "1.0.89"
-dotenv = "0.13.0"
-reqwest = "0.9.12"
-eventual = "0.1.7"
-serde_json = "1.0.39"
-serde_derive = "1.0.80"
+hyper  = "0.12"
+dotenv = "0.13"
+redis = "0.10"
+tokio = "0.1"
+zmq = "0.9"
+
+[dependencies.serde]
+version = "1.0"
+features = ["derive"]

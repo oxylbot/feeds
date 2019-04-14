@@ -1,20 +1,27 @@
 #[macro_use]
-extern crate serde_derive;
-
-extern crate dotenv;
-extern crate eventual;
-extern crate reqwest;
 extern crate serde;
-extern crate serde_json;
+extern crate hyper;
+extern crate dotenv;
+extern crate redis;
+extern crate zmq;
 
-mod feed_handler;
+mod services;
 mod interval;
 
-use self::feed_handler::*;
-use dotenv::dotenv as load_env;
+use dotenv::dotenv;
+use redis::{Client, Connection};
+
 
 fn main() {
-    load_env().ok();
+    dotenv().ok();
 
-    load_feed(String::from("twitch"), vec!["sypherpk", "chicalive"]);
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn hello_world() {
+        let hello: &str = "Hello, World!";
+        assert_eq!(hello, "Hello, World!")
+    }
 }

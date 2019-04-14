@@ -1,15 +1,15 @@
 sudo: required
 
-services:
- - docker
-
 language: rust
 rust: nightly
 
 install: cargo build --verbose
 
 before_script:
-  - sudo apt-get update
+  - sudo apt-get update && apt-get upgrade
+  - echo "deb http://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/ ./" >> /etc/apt/sources.list
+  - wget https://download.opensuse.org/repositories/network:/messaging:/zeromq:/release-stable/Debian_9.0/Release.key -O- | sudo apt-key add
+  - sudo apt-get install libzmq3-dev
 
 script:
   - cargo test

@@ -1,5 +1,10 @@
-/target/
+/target
 Cargo.lock
 LICENSE
 README.md
+.env
+.travis.yml
+.gitignore
+renovate.json
+**/.git
 **/*.rs.bk
