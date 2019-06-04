@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Hello, World!\""
+  },
+  "dependencies": {
+    "protobufjs": "^6.8.8",
+    "superagent": "^5.0.3",
+    "zeromq": "^5.1.0"
+  },
+  "devDependencies": {
+    "eslint": "5.14.0",
+    "eslint-config-recommended": "4.0.0"
+  },
+  "name": "feeds",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/oxylbot/feeds.git",
+  "license": "MIT"
+}
