@@ -1,5 +1,25 @@
 const path = require("path");
 const protobuf = require("protobufjs");
+const Redis = require("ioredis");
+
+const reddit = require("./reddit/index");
+
+const redis = new Redis({
+	port: +process.env.REDIS_SERVICE_PORT,
+	host: "redis",
+	family: 4,
+	db: +process.env.REDIS_DATABASE,
+	maxRetriesPerRequest: null,
+	reconnectOnError(error) {
+		return error.message.startsWith("connect ETIMEDOUT");
+	}
+});
+
+redis.on("error", error => {
+	if(error.message.startsWith("connect ETIMEDOUT")) {
+		redis.connect();
+	}
+});
 
 const BucketClient = require("./sockets/bucketClient");
 
@@ -12,6 +32,13 @@ async function init() {
 	bucketClient.start({
 		discord: discordProto,
 		rpc: rpcProto
+	});
+
+	await redis.subscribe("reddit");
+	await reddit(redis);
+
+	redis.on("message", (channel, message) => {
+		if(channel === "reddit") reddit.message(redis, message);
 	});
 }
 
