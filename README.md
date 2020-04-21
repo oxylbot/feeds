@@ -1,2 +1,2 @@
-# feeds [![Build Status](https://travis-ci.org/oxylbot/feeds.svg?branch=master)](https://travis-ci.org/oxylbot/feeds)
+# feeds [![Build Status](https://travis-ci.com/oxylbot/feeds.svg?branch=master)](https://travis-ci.com/oxylbot/feeds)
 Feed handler for Oxyl
