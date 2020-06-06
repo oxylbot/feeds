@@ -1,6 +1,6 @@
 {
   "name": "feeds",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Feed handler",
   "main": "src/index.js",
   "scripts": {
@@ -24,6 +24,6 @@
   },
   "devDependencies": {
     "eslint": "7.2.0",
-    "eslint-config-recommended": "4.0.0"
+    "eslint-config-recommended": "4.1.0"
   }
 }
